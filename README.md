@@ -10,7 +10,7 @@ After comparing the return between 2017 and 2018, we can see only ticker “ENPH
 ## Summary:
 ###### Advantage: 
 The refactoring code will only read the code once which mean that the running time for the script is less than the original code
-######Disadvantage：
+###### Disadvantage：
 The refactoring code is based on the data is sorted before we run the program. The original code can have the correct result even though the tickers are not sorted.
 
 
