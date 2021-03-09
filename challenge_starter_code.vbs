@@ -69,20 +69,27 @@ Sub AllStocksAnalysisRefactored()
 
 For i = 2 To RowCount
         
+        'for current ticker, add the voulume up until the tickerindex is changed
         If Cells(i, 1).Value = tickers(tickerIndex) Then
         tickerVolumes(tickerIndex) = tickerVolumes(tickerIndex) + Cells(i, 8).Value
         
     Else
     
+        'Before the tickerindex swtich to next one, it's the last row of the current ticker, therefore we can get endingprice for current ticker
         endingPrice(tickerIndex) = Cells(i - 1, 6).Value
+        
+        'ticerkindex switch to next one
         tickerIndex = tickerIndex + 1
+        
+        'add the total volumes for the next ticker
         tickerVolumes(tickerIndex) = tickerVolumes(tickerIndex) + Cells(i, 8).Value
+        
+        'the startingprice for the new ticker
         startingPrice(tickerIndex) = Cells(i, 6).Value
         
     End If
     
 Next i
-
 
         
     ''2b) Loop over all the rows in the spreadsheet. 
